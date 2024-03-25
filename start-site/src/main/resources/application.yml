@@ -49,7 +49,7 @@ initializr:
         versionProperty: spring-boot-admin.version
         mappings:
           - compatibilityRange: "[3.1.0,3.3.0-M1)"
-            version: 3.2.1
+            version: 3.2.3
       hilla:
         groupId: dev.hilla
         artifactId: hilla-bom
@@ -146,9 +146,9 @@ initializr:
         versionProperty: spring-shell.version
         mappings:
           - compatibilityRange: "[3.1.0,3.2.0-M1)"
-            version: 3.1.9
+            version: 3.1.10
           - compatibilityRange: "[3.2.0-M1,3.3.0-M1)"
-            version: 3.2.2
+            version: 3.2.3
       timefold-solver:
         groupId: ai.timefold.solver
         artifactId: timefold-solver-bom
@@ -162,7 +162,7 @@ initializr:
         versionProperty: vaadin.version
         mappings:
           - compatibilityRange: "[3.0.0,3.3.0-M1)"
-            version: 24.3.7
+            version: 24.3.8
     gradle:
       dependency-management-plugin-version: 1.0.14.RELEASE
     platform:
