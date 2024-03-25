@@ -118,6 +118,14 @@ function Fields({
                 }}
               />
               <FieldInput
+                id='input-version'
+                value={get(values, 'meta.version')}
+                text='Version'
+                onChange={event => {
+                  update({ meta: { version: event.target.value } })
+                }}
+              />
+              <FieldInput
                 id='input-description'
                 value={get(values, 'meta.description')}
                 text='Description'

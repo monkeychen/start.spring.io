@@ -14,6 +14,7 @@ export const defaultInitializrContext = {
       name: '',
       group: '',
       artifact: '',
+      version: '',
       description: '',
       packaging: '',
       packageName: '',
@@ -66,6 +67,10 @@ export function reducer(state, action) {
           `${get(meta, 'group')}.${get(meta, 'artifact')}`
         )
         set(meta, 'name', `${get(meta, 'artifact')}`)
+      }
+      if (get(changes, 'meta.version') !== undefined) {
+        set(meta, 'version', `${get(meta, 'version')}`
+        )
       }
       const values = {
         ...get(state, 'values'),

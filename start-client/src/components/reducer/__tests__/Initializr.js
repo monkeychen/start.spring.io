@@ -27,6 +27,7 @@ describe('COMPLETE action', () => {
           name: '',
           group: '',
           artifact: '',
+          version: '',
           description: '',
           packaging: '',
           packageName: '',
@@ -47,7 +48,7 @@ describe('COMPLETE action', () => {
       },
     })
     expect(get(result, 'share')).toBe(
-      'type=maven-project&language=java&platformVersion=2.2.0.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.demo'
+      'type=maven-project&language=java&platformVersion=2.2.0.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=demo&version=0.0.1-SNAPSHOT&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.demo'
     )
     expect(get(result, 'values.project')).toBe('maven-project')
     expect(get(result, 'values.language')).toBe('java')
@@ -55,6 +56,7 @@ describe('COMPLETE action', () => {
     expect(get(result, 'values.meta.name')).toBe('demo')
     expect(get(result, 'values.meta.group')).toBe('com.example')
     expect(get(result, 'values.meta.artifact')).toBe('demo')
+    expect(get(result, 'values.meta.version')).toBe('0.0.1-SNAPSHOT')
     expect(get(result, 'values.meta.description')).toBe(
       'Demo project for Spring Boot'
     )

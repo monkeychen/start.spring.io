@@ -154,6 +154,7 @@ describe('parseParams', () => {
         jvmVersion: '11',
         groupId: 'com.example2',
         artifactId: 'demo2',
+        version: '1',
         name: 'demo2',
         description: 'Demo project for Spring Boot2',
         packageName: 'com.example2.demo2',
@@ -194,6 +195,7 @@ describe('parseParams', () => {
         jvmVersion: '1',
         groupId: 'com.example',
         artifactId: 'demo',
+        version: '1',
         name: 'demo',
         description: 'Demo project for Spring Boot',
         packageName: 'com.example.demo',
@@ -238,6 +240,7 @@ describe('parseParams', () => {
         jvmVersion: '11',
         groupId: 'com.example2',
         artifactId: 'demo2',
+        version: '1',
         name: 'demo2',
         description: 'Demo project for Spring Boot2',
         packageName: 'com.example2.demo2',
@@ -255,6 +258,7 @@ describe('parseParams', () => {
     expect(get(result, 'values.meta.java')).toBe('11')
     expect(get(result, 'values.meta.group')).toBe('com.example2')
     expect(get(result, 'values.meta.artifact')).toBe('demo2')
+    expect(get(result, 'values.meta.version')).toBe('1')
     expect(get(result, 'values.meta.name')).toBe('demo2')
     expect(get(result, 'values.meta.description')).toBe(
       'Demo project for Spring Boot2'
@@ -279,6 +283,7 @@ describe('parseParams', () => {
         jvmVersion: '1',
         groupId: 'com.example',
         artifactId: 'demo',
+        version: '1',
         name: 'demo',
         description: 'Demo project for Spring Boot',
         packageName: 'com.example.demo',
@@ -295,6 +300,7 @@ describe('parseParams', () => {
 
     expect(get(result, 'values.meta.group')).toBe('com.example')
     expect(get(result, 'values.meta.artifact')).toBe('demo')
+    expect(get(result, 'values.meta.version')).toBe('1')
     expect(get(result, 'values.meta.name')).toBe('demo')
     expect(get(result, 'values.meta.description')).toBe(
       'Demo project for Spring Boot'
@@ -325,6 +331,7 @@ describe('getShareUrl', () => {
         java: 'foo5',
         group: 'foo6',
         artifact: 'foo7',
+        version: 'foo13',
         name: 'foo8',
         description: 'foo9',
         packageName: 'foo10',
@@ -332,7 +339,7 @@ describe('getShareUrl', () => {
       dependencies: ['foo11', 'foo12'],
     })
     expect(result).toBe(
-      'type=foo1&language=foo2&platformVersion=foo3&packaging=foo4&jvmVersion=foo5&groupId=foo6&artifactId=foo7&name=foo8&description=foo9&packageName=foo10&dependencies=foo11,foo12'
+      'type=foo1&language=foo2&platformVersion=foo3&packaging=foo4&jvmVersion=foo5&groupId=foo6&artifactId=foo7&version=foo13&name=foo8&description=foo9&packageName=foo10&dependencies=foo11,foo12'
     )
   })
 })
@@ -355,6 +362,7 @@ describe('getProject', () => {
         java: 'foo5',
         group: 'foo6',
         artifact: 'foo7',
+        version: 'foo13',
         name: 'foo8',
         description: 'foo9',
         packageName: 'foo10',
@@ -367,7 +375,7 @@ describe('getProject', () => {
     ])
     expect(fetch.mock.calls.length).toEqual(1)
     expect(fetch.mock.calls[0][0]).toEqual(
-      'http://demo/starter.zip?type=foo1&language=foo2&bootVersion=foo3&baseDir=foo7&groupId=foo6&artifactId=foo7&name=foo8&description=foo9&packageName=foo10&packaging=foo4&javaVersion=foo5&dependencies=foo11,foo12'
+      'http://demo/starter.zip?type=foo1&language=foo2&bootVersion=foo3&baseDir=foo7&groupId=foo6&artifactId=foo7&version=foo13&name=foo8&description=foo9&packageName=foo10&packaging=foo4&javaVersion=foo5&dependencies=foo11,foo12'
     )
   })
 
@@ -381,6 +389,7 @@ describe('getProject', () => {
         java: 'foo5',
         group: 'foo6',
         artifact: 'foo7',
+        version: 'foo13',
         name: 'foo8',
         description: 'foo9',
         packageName: 'foo10',
@@ -390,7 +399,7 @@ describe('getProject', () => {
     getProject('http://demo/starter.zip', values, [{ id: 'foo11' }])
     expect(fetch.mock.calls.length).toEqual(1)
     expect(fetch.mock.calls[0][0]).toEqual(
-      'http://demo/starter.zip?type=foo1&language=foo2&bootVersion=foo3&baseDir=foo7&groupId=foo6&artifactId=foo7&name=foo8&description=foo9&packageName=foo10&packaging=foo4&javaVersion=foo5&dependencies=foo11'
+      'http://demo/starter.zip?type=foo1&language=foo2&bootVersion=foo3&baseDir=foo7&groupId=foo6&artifactId=foo7&version=foo13&name=foo8&description=foo9&packageName=foo10&packaging=foo4&javaVersion=foo5&dependencies=foo11'
     )
   })
 
@@ -404,6 +413,7 @@ describe('getProject', () => {
         java: 'foo5',
         group: 'foo6',
         artifact: 'foo7',
+        version: 'foo13',
         name: 'foo8',
         description: 'foo9',
         packageName: 'foo10',
@@ -412,7 +422,7 @@ describe('getProject', () => {
     getProject('http://demo/starter.zip', values, [])
     expect(fetch.mock.calls.length).toEqual(1)
     expect(fetch.mock.calls[0][0]).toEqual(
-      'http://demo/starter.zip?type=foo1&language=foo2&bootVersion=foo3&baseDir=foo7&groupId=foo6&artifactId=foo7&name=foo8&description=foo9&packageName=foo10&packaging=foo4&javaVersion=foo5'
+      'http://demo/starter.zip?type=foo1&language=foo2&bootVersion=foo3&baseDir=foo7&groupId=foo6&artifactId=foo7&version=foo13&name=foo8&description=foo9&packageName=foo10&packaging=foo4&javaVersion=foo5'
     )
   })
 })

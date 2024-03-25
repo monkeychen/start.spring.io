@@ -36,6 +36,8 @@ spring:
         use-last-modified: false
 
 initializr:
+  # version:
+  #  value: 1.1-SNAPSHOT
   stats:
     elastic:
       uri: ${elastic-uri:}
@@ -165,6 +167,11 @@ initializr:
       dependency-management-plugin-version: 1.0.14.RELEASE
     platform:
       compatibility-range: "3.1.0"
+    maven:
+      parent:
+        group-id: com.ndyd
+        artifact-id: ndyd-platform
+        version: 1.0-SNAPSHOT
   dependencies:
     - name: Developer Tools
       content:
@@ -1437,6 +1444,15 @@ initializr:
               href: https://googlecloudplatform.github.io/spring-cloud-gcp/reference/html/index.html#cloud-storage
             - rel: guide
               href: https://github.com/GoogleCloudPlatform/spring-cloud-gcp/tree/main/spring-cloud-gcp-samples/spring-cloud-gcp-storage-resource-sample
+    - name: Innobase
+      content:
+        - name: ndyd-component-uc
+          id: ndyd-component-uc
+          groupId: com.ndyd
+          artifactId: ndyd-component-uc
+          scope: compile
+          description: ndyd-component-uc.
+          starter: false
     - name: AI
       content:
         - name: Azure OpenAI
@@ -1669,7 +1685,7 @@ initializr:
         build: gradle
         dialect: groovy
         format: project
-      default: true
+      default: false
       action: /starter.zip
     - name: Gradle - Kotlin
       id: gradle-project-kotlin
@@ -1694,7 +1710,7 @@ initializr:
       tags:
         build: maven
         format: project
-      default: false
+      default: true
       action: /starter.zip
     - name: Maven POM
       id: maven-build
@@ -1717,6 +1733,8 @@ initializr:
     - id: 21
       default: false
     - id: 17
+      default: false
+    - id: 8
       default: true
   languages:
     - name: Java
