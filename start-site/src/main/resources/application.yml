@@ -166,13 +166,22 @@ initializr:
     gradle:
       dependency-management-plugin-version: 1.0.14.RELEASE
     platform:
-      compatibility-range: "3.1.0"
+      compatibility-range: "2.5.0"
     maven:
       parent:
         group-id: com.ndyd
         artifact-id: ndyd-platform
         version: 1.0-SNAPSHOT
   dependencies:
+    - name: Innobase
+      content:
+        - name: ndyd-component-uc
+          id: ndyd-component-uc
+          groupId: com.ndyd
+          artifactId: ndyd-component-uc
+          version: 1.0-SNAPSHOT
+          description: ndyd-component-uc.
+          starter: true
     - name: Developer Tools
       content:
         - name: GraalVM Native Support
@@ -1444,15 +1453,6 @@ initializr:
               href: https://googlecloudplatform.github.io/spring-cloud-gcp/reference/html/index.html#cloud-storage
             - rel: guide
               href: https://github.com/GoogleCloudPlatform/spring-cloud-gcp/tree/main/spring-cloud-gcp-samples/spring-cloud-gcp-storage-resource-sample
-    - name: Innobase
-      content:
-        - name: ndyd-component-uc
-          id: ndyd-component-uc
-          groupId: com.ndyd
-          artifactId: ndyd-component-uc
-          scope: compile
-          description: ndyd-component-uc.
-          starter: false
     - name: AI
       content:
         - name: Azure OpenAI
@@ -1678,32 +1678,6 @@ initializr:
               href: https://github.com/TimefoldAI/timefold-quickstarts/tree/stable/technology/java-spring-boot
               description: Timetabling sample. Assign lessons to timeslots and rooms to produce a better schedule for teachers and students
   types:
-    - name: Gradle - Groovy
-      id: gradle-project
-      description: Generate a Gradle based project archive using the Groovy DSL.
-      tags:
-        build: gradle
-        dialect: groovy
-        format: project
-      default: false
-      action: /starter.zip
-    - name: Gradle - Kotlin
-      id: gradle-project-kotlin
-      description: Generate a Gradle based project archive using the Kotlin DSL.
-      tags:
-        build: gradle
-        dialect: kotlin
-        format: project
-      default: false
-      action: /starter.zip
-    - name: Gradle Config
-      id: gradle-build
-      description: Generate a Gradle build file.
-      tags:
-        build: gradle
-        format: build
-      default: false
-      action: /build.gradle
     - name: Maven
       id: maven-project
       description: Generate a Maven based project archive.
@@ -1720,6 +1694,23 @@ initializr:
         format: build
       default: false
       action: /pom.xml
+    - name: Gradle - Groovy
+      id: gradle-project
+      description: Generate a Gradle based project archive using the Groovy DSL.
+      tags:
+        build: gradle
+        dialect: groovy
+        format: project
+      default: false
+      action: /starter.zip
+    - name: Gradle Config
+      id: gradle-build
+      description: Generate a Gradle build file.
+      tags:
+        build: gradle
+        format: build
+      default: false
+      action: /build.gradle
   packagings:
     - name: Jar
       id: jar
@@ -1740,24 +1731,21 @@ initializr:
     - name: Java
       id: java
       default: true
-    - name: Kotlin
-      id: kotlin
-      default: false
     - name: Groovy
       id: groovy
       default: false
   bootVersions:
-    - name: 3.2.0 (SNAPSHOT)
-      id: 3.2.0-SNAPSHOT
+    - name: 3.3.0 (SNAPSHOT)
+      id: 3.3.0-SNAPSHOT
       default: false
-    - name: 3.2.0 (RC1)
-      id: 3.2.0-RC1
+    - name: 3.2.4
+      id: 3.2.4
       default: false
-    - name: 3.1.6 (SNAPSHOT)
-      id: 3.1.6-SNAPSHOT
+    - name: 3.1.10
+      id: 3.1.10
       default: false
-    - name: 3.1.5
-      id: 3.1.5
+    - name: 2.7.16
+      id: 2.7.16
       default: true
 
 ---

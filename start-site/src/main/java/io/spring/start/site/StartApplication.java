@@ -61,7 +61,7 @@ public class StartApplication {
 		return new HomeController();
 	}
 
-	@Bean
+	// @Bean
 	public StartInitializrMetadataUpdateStrategy initializrMetadataUpdateStrategy(
 			RestTemplateBuilder restTemplateBuilder, ObjectMapper objectMapper) {
 		return new StartInitializrMetadataUpdateStrategy(restTemplateBuilder.build(), objectMapper);

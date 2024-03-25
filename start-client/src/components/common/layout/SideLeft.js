@@ -51,10 +51,7 @@ function SideLeft() {
               aria-label='Menu'
               aria-controls='navigation'
               onClick={() => {
-                if (lock) {
-                  return
-                }
-                dispatch({ type: 'UPDATE', payload: { nav: !nav } })
+                return
               }}
             >
               <span className='hamburger-box' tabIndex='-1'>
@@ -66,7 +63,7 @@ function SideLeft() {
             <a
               rel='noreferrer noopener'
               target='_blank'
-              href='https://github.com/spring-io/start.spring.io'
+              href='https://github.com/monkeychen/start.spring.io'
             >
               <span className='a-content' tabIndex='-1'>
                 <IconGithub />
