@@ -25,7 +25,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.Ordered;
 
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 
 /**
@@ -33,14 +32,14 @@ import java.nio.file.Path;
  *
  * @author chenzhian
  */
-public class InnoVueAppContributor implements ProjectContributor {
-    private static final Logger logger = LoggerFactory.getLogger(InnoVueAppContributor.class);
+public class InnobaseAppContributor implements ProjectContributor {
+    private static final Logger logger = LoggerFactory.getLogger(InnobaseAppContributor.class);
 
 	private final Build build;
 
 	private final BuildMetadataResolver buildMetadataResolver;
 
-	public InnoVueAppContributor(Build build, InitializrMetadata metadata) {
+	public InnobaseAppContributor(Build build, InitializrMetadata metadata) {
 		this.build = build;
 		this.buildMetadataResolver = new BuildMetadataResolver(metadata);
 	}

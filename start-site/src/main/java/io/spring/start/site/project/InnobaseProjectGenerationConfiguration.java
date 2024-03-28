@@ -3,7 +3,7 @@ package io.spring.start.site.project;
 import io.spring.initializr.generator.buildsystem.Build;
 import io.spring.initializr.generator.project.ProjectGenerationConfiguration;
 import io.spring.initializr.metadata.InitializrMetadata;
-import io.spring.start.site.project.contributor.InnoVueAppContributor;
+import io.spring.start.site.project.contributor.InnobaseAppContributor;
 import org.springframework.context.annotation.Bean;
 
 /**
@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Bean;
 public class InnobaseProjectGenerationConfiguration {
 
     @Bean
-    InnoVueAppContributor innoVueAppContributor(Build build, InitializrMetadata metadata) {
-        return new InnoVueAppContributor(build, metadata);
+    InnobaseAppContributor innoVueAppContributor(Build build, InitializrMetadata metadata) {
+        return new InnobaseAppContributor(build, metadata);
     }
 }
